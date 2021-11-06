@@ -19,7 +19,7 @@ os.system("openssl x509 -req -in org.csr -CA root.crt -CAkey root.key -CAcreates
 print("Please enter your 'issued to'(AKA. server domain/ip) in 'common name'")
 print("Press enter to continue.")
 pmpt = input("")
-genkey("server", "Server")
+genkey("server.key", "Server")
 days = input("Server CA valid period: ")
 os.system("openssl req -new -key server.key -out server.csr")
 os.system("openssl x509 -req -in server.csr -CA org.crt -CAkey org.key -CAcreateserial -out server.crt -days " + str(days) + " -sha256")
